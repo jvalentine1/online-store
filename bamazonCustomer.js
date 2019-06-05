@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
   user: "root",
 
   // Your password
-  password: "Jessejames1!",
+  password: "root",
   database: "bamazon"
 });
 
@@ -29,7 +29,7 @@ connection.connect(function(err) {
     connection.query("SELECT * FROM products", function(err, res) {
         if (err) throw err;
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < res.length; i++) {
            var products = res[i];
 
             var productList = [
@@ -121,5 +121,20 @@ connection.connect(function(err) {
   }
 
   function updateInventory(answer, res) {
-    
+    var newStock = res[0].stock_quantity - answer.productQuantity;
+
+    connection.query("UPDATE products SET ? WHERE ?",
+        [
+            {
+                stock_quantity: newStock
+            },
+            {
+                id: res[0].id
+            }
+        ],
+        function(err) {
+            if (err) throw (err);
+            console.log("\nInventory Updated");
+            connection.end();
+        });
   }
