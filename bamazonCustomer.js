@@ -63,7 +63,23 @@ connection.connect(function(err) {
             message: "Enter the quantity you would like to purchase"
         }
     ]).then(function(answer) {
-        findProduct(answer);
+        connection.query("SELECT * FROM products WHERE id", function(err, res) {
+
+            if (err) throw (err);
+            var idCheck = false;
+
+            for (var j = 0; j < res.length; j++) {
+                if (res[j].id === answer.productID) {
+                    findProduct(answer);
+                    idCheck = true;
+                }
+            }
+            if (!idCheck) {
+                console.log("\n");
+                console.log("No Such ID");
+                promptCustomer();
+            }   
+        });
     });
   };
   
@@ -75,6 +91,7 @@ connection.connect(function(err) {
         if (err) throw err;
         
         if (answer.productQuantity > res[0].stock_quantity) {
+            console.log("\n");
             console.log("Insufficient Quanity");
             promptCustomer();
         }
@@ -85,6 +102,24 @@ connection.connect(function(err) {
   };
 
   function processOrder(answer, res) {
-      console.log(answer);
-      console.log(res);
+
+    var totalCost = answer.productQuantity * res[0].price;
+
+    var orderReview = [
+        "Your Order",
+        "Item: " + res[0].product_name,
+        "Product ID: " + res[0].id,
+        "Order Quantity: " + answer.productQuantity,
+        "Total Cost: $" +  totalCost
+    ].join("\n");
+
+    console.log("\n");
+    console.log(orderReview);
+    console.log("\nThank You For Your Order!");
+
+      updateInventory(answer, res);
+  }
+
+  function updateInventory(answer, res) {
+    
   }
