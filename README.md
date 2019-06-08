@@ -13,3 +13,9 @@ The Bamazon CLI app is an easy and productive application that allows users to a
 ####Data Storage 
 
 Bamazons product information is handled by MySql database to guarantee fast and secure data retrieval and storing.
+
+![MySql](https://github.com/jvalentine1/online-store/blob/master/images/database-pic.png)
+
+MySql provides effective table data storage
+
+![MySql Table](https://github.com/jvalentine1/online-store/blob/master/images/table-pic.png)
