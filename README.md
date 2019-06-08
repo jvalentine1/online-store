@@ -55,3 +55,10 @@ After an order has been placed by the customer than bamazon will update the MySq
 ![data update](https://github.com/jvalentine1/online-store/blob/master/images/data-update-gif.gif)
 
 #### Setting Up Your Machine
+
+In order for developers to use this application they will have to install the following npm packages
+
+        * npm install inquirer
+        * npm install mysql
+
+Devlopers will also be required to have a mysql account in to connect to the local instance server, then they will be able to utilize the sql schema and seed documents. 
