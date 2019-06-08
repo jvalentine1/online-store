@@ -36,6 +36,22 @@ The client will then be prompted to enter the id and quanity of the item they wo
 
 Bamazon will calculate the customers order and complete their transaction
 
-![Order Review](https://github.com/jvalentine1/online-store/blob/master/images/Screen%20Shot%202019-06-08%20at%202.12.34%20PM.png)
+![Order Review](https://github.com/jvalentine1/online-store/blob/master/images/order-review-pic.png)
 
 #### Product Validation
+
+If the user enters a product id that does not exist, bamazon will inform the customer that there is no such id and return them to the prompt field.
+
+![Invalid id](https://github.com/jvalentine1/online-store/blob/master/images/bad-id-gif.gif)
+
+If the user enters an invalid quantity, bamazon will inform the customer that the quantity is insufficient and return them to the prompt field.
+
+![invalid quantity](https://github.com/jvalentine1/online-store/blob/master/images/bad-quantity-gif.gif)
+
+#### Data Updates 
+
+After an order has been placed by the customer than bamazon will update the MySql database to reflect the new quantity in stock. 
+
+![data update](https://github.com/jvalentine1/online-store/blob/master/images/data-update-gif.gif)
+
+#### Setting Up Your Machine
