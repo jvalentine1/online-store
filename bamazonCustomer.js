@@ -55,7 +55,7 @@ connection.connect(function(err) {
         {
             name: "productID",
             type: "number",
-            message: "Enter the ID of the produuct you wish to purchase"
+            message: "Enter the ID of the product you wish to purchase"
         },
         {
             name: "productQuantity",
